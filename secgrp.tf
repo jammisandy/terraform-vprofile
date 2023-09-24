@@ -20,7 +20,7 @@ resource "aws_security_group" "vprofile-bean-elb-sg" {
 resource "aws_security_group" "vprofile-bastion-sg" {
     name = "vprofile-bastion-sg"
    description = "Security group for bastion ec2 instance"
-   vpc_id = "module.vpc.vpc_id"
+   vpc_id =  module.vpc.vpc_id
 
    egress {
      from_port = 0
@@ -40,7 +40,7 @@ resource "aws_security_group" "vprofile-bastion-sg" {
 resource "aws_security_group" "vprofile-prod-sg" {
     name = "vprofile-prod-sg"
    description = "Security group for beanstack instance"
-   vpc_id = "module.vpc.vpc_id"
+   vpc_id = module.vpc.vpc_id
 
    egress {
      from_port = 0
@@ -60,7 +60,7 @@ resource "aws_security_group" "vprofile-prod-sg" {
 resource "aws_security_group" "vprofile-backend-sg" {
     name = "vprofile-backend-sg"
    description = "Security group for RDS, active MQ, elastic cache"
-   vpc_id = "module.vpc.vpc_id"
+   vpc_id =  module.vpc.vpc_id
 
    egress {
      from_port = 0
